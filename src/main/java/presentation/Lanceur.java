@@ -66,7 +66,7 @@ public class Lanceur {
 				int id = sc.nextInt();
 				Student studentFound = studentService.getStudent(id);
 				System.out.println("les informations de l'etudiant numero " + id);
-				System.out.println(studentFound.getFirstName() + " " + studentFound.getLastName() + 
+				System.out.println(studentFound.getFirstName() + "  " + studentFound.getLastName() + 
 						"suit le cours"+ studentFound.getCourse().getThemeCourse());
 				break;
 				
@@ -80,6 +80,7 @@ public class Lanceur {
 				System.out.println("Telephone de l'etudiant ?");
 				studentUpdate.setNumberPhone(sc.nextLine()); 
 				studentService.updateStudent(studentUpdate);
+				
 				break;
 				
 			case 4:
@@ -89,9 +90,7 @@ public class Lanceur {
 				studentService.deleteStudent(iddel);
 				System.out.println("Etudiant supprimer avec succes");
 				
-				
-				
-				
+
 				default:
 					System.out.println("A BIENTOT");
 					

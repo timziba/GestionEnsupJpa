@@ -14,9 +14,10 @@ public class StudentDao {
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("gestionensupjpa");
 	EntityManager entityManager = entityManagerFactory.createEntityManager();
 	
-	EntityTransaction entityTransaction = entityManager.getTransaction();
+	
 	
 	public void createStudent(Student student) {
+		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		
 		entityManager.persist(student);
@@ -27,19 +28,16 @@ public class StudentDao {
 	}
 	
 	public Student getStudentById(long id) {
-		
-		entityTransaction.begin();
+
 		Student student = entityManager.find(Student.class, id);
-		
-		entityTransaction.commit();
-		entityManager.close();
-		entityManagerFactory.close();
+
 		return student;
 	}
 	
 	
+	
 	public void updateStudent(Student student) {
-		
+		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		entityManager.merge(student);
 		entityTransaction.commit();
@@ -48,11 +46,18 @@ public class StudentDao {
 	}
 	
 	public void deleteStudent(long id) {
+		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
+		
 		Student student = getStudentById(id);
 		entityManager.remove(student);
+		entityTransaction.commit();
+		
+		entityManager.close();
+		entityManagerFactory.close();
 	}
 	
+
 	
 
 }
