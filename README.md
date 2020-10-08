@@ -29,5 +29,8 @@ ETAPE 4 : Ouvrir le fichier de configuration  persistencce.xml dans le package r
            login : root
            password : mettre mot de passe s'il y a en sinon laissé vide  
            
-ETAPE 5 : Lancer le programme et c'est tout 
+ETAPE 5 : Ouvrir une ligne de commande , ammer a la racine du projet et taper la commande :
+          mvn clean package
+          Ouvrir la dossier target a la racine du projet et lancer le fichier .jar
+Lancer le programme et c'est tout 
 
