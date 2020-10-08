@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,6 +11,7 @@ import javax.persistence.Persistence;
 import domaine.Student;
 
 public class StudentDao {
+	
 	
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("gestionensupjpa");
 	EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -57,6 +59,10 @@ public class StudentDao {
 		entityManagerFactory.close();
 	}
 	
+	public List<Student> getAllStudent(){
+		
+		return entityManager.createNamedQuery("getAllStudent", Student.class).getResultList();
+	}
 
 	
 

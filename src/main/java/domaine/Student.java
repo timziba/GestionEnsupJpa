@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  * Class Student
@@ -16,8 +18,12 @@ import javax.persistence.ManyToOne;
 
 @Entity
 @DiscriminatorValue("student")
+@NamedQueries({
+	@NamedQuery(name = "getAllStudent", query = "select * from person ")
+})
 public class Student extends Person {
 
+	
 	private String dateOfBirth;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)

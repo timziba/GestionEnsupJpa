@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import dao.StudentDao;
 import domaine.Student;
 
@@ -27,4 +29,9 @@ public class StudentService {
 		studentDao.deleteStudent(id);
 	}
 
+	
+	public List<Student> getAll(){
+		
+		return studentDao.getAllStudent();
+	}
 }

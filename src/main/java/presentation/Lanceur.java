@@ -1,6 +1,7 @@
 package presentation;
 
 import java.io.Console;
+import java.util.List;
 import java.util.Scanner;
 
 import domaine.Course;
@@ -25,6 +26,7 @@ public class Lanceur {
 			System.out.println("Tapez 2 pour lire information d'un etudiant");
 			System.out.println("Tapez 3 pour modifier un etudiant");
 			System.out.println("Tapez 4 pour supprimer un etudiant" );
+			System.out.println("Tapez 5 pour voir la liste des étudiants" );
 			System.out.println("Tapez 0 pour quitter" );
 			
 			
@@ -90,6 +92,20 @@ public class Lanceur {
 				studentService.deleteStudent(iddel);
 				System.out.println("Etudiant supprimer avec succes");
 				
+				break;
+				
+			case 5:
+				sc.nextLine();
+				System.out.println("la liste des etudiants");
+				
+				List<Student> listStudent = studentService.getAll();
+				
+				System.out.println("PRENOM" + "     "+ "NOM");
+				for (Student studentList : listStudent) {
+					
+					System.out.println(studentList.getFirstName() + "  "+ studentList.getLastName());
+				}
+				break;
 
 				default:
 					System.out.println("A BIENTOT");
